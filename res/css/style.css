@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --p-1: rgb(255, 110, 134);
+    --p-1-b: rgba(255, 110, 134, 0.3);
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(20, 20, 20);
+}
+
+@font-face {
+    font-family: "Aller";
+    src: url(../font/Aller_Rg.ttf);
+}
+
+#point {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-color: var(--p-1-b);
+    border: 4px solid var(--p-1);
+    cursor: pointer;
+    position: absolute;
+    transition: .2s left, .2s top, .2s width, .2s height;
+    left: 400px;
+    top: 500px;
+    text-align: center;
+    font-family: "Aller";
+    font-size: 38px;
+    color: white;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+#startGame {
+    margin-top: 30px;
+    font-family: "Aller";
+    font-size: 38px;
+    color: white;
+    background-color: rgb(255, 133, 153);
+    border: 2px solid rgb(255, 90, 117);
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 8px rgb(255, 108, 133);
+    transition: .4s rotate, .4s background-color, .4s text-shadow, .2s transform, .4s opacity;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#startGame:hover {
+    rotate: 4deg;
+    background-color: rgb(255, 90, 117);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#startGame:active {
+    transform: scale(0.95);
+}
+
+.flex1 {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+/* Animace */
+
+@keyframes clickedPoint {
+    from {
+        outline: 5px solid rgb(255, 110, 134);
+        outline-offset: 0px;
+    }
+
+    to {
+        outline: 1px solid transparent;
+        outline-offset: 20px;
+    }
+}
+
+.clickedPoint {
+    animation: 1s clickedPoint;
+}
+
+@keyframes clickedButton {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.clickedButton {
+    animation: 2s clickedButton; 
+}
