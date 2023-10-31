@@ -95,10 +95,18 @@ body {
 #timeInfo,span#curSpeed {
     color: white;
     font-family: monospace;
+    position: relative;
+    top: -30px;
 }
 
 .icons-bar span {
     margin-left: 8px;
+}
+
+#plusSpeed, #minusSpeed {
+    pointer-events: none;
+    opacity: 0;
+    transition: .5s opacity;
 }
 
 /* Animace */

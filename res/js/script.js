@@ -25,6 +25,10 @@ startGame.onclick = () => {
     startPointInterval();
     startGame.style.pointerEvents = "none";
     startGame.style.opacity = "0";
+    minusSpeed.style.opacity = "1";
+    plusSpeed.style.opacity = "1";
+    minusSpeed.style.pointerEvents = "all";
+    plusSpeed.style.pointerEvents = "all";
 }
 
 plusSpeed.onclick = () => {
@@ -35,6 +39,7 @@ plusSpeed.onclick = () => {
         movePoint(point, getRandomNumber(parseFloat(point.style.width), window.innerWidth - parseFloat(point.style.width)), getRandomNumber(parseFloat(point.style.height), window.innerHeight - parseFloat(point.style.height)));
     }, speed);
     curSpeed.innerText = `Current speed: ${speed}`;
+    updateCSSIcons();
 }
 
 minusSpeed.onclick = () => {
@@ -45,6 +50,7 @@ minusSpeed.onclick = () => {
         movePoint(point, getRandomNumber(parseFloat(point.style.width), window.innerWidth - parseFloat(point.style.width)), getRandomNumber(parseFloat(point.style.height), window.innerHeight - parseFloat(point.style.height)));
     }, speed);
     curSpeed.innerText = `Current speed: ${speed}`;
+    updateCSSIcons();
 }
 
 const movePoint = (element, x, y) => {
@@ -60,6 +66,14 @@ const startPointInterval = () => {
         setSize(point, getRandomNumber(60, 130));
         movePoint(point, getRandomNumber(parseFloat(point.style.width), window.innerWidth - parseFloat(point.style.width)), getRandomNumber(parseFloat(point.style.height), window.innerHeight - parseFloat(point.style.height)));
     }, speed);
+}
+
+const updateCSSIcons = () => {
+    if (speed == 100) {
+        minusSpeed.style.pointerEvents = "none";
+    } else {
+        minusSpeed.style.pointerEvents = "all";
+    }
 }
 
 const getRandomNumber = (max, min) => Math.floor(Math.random() * (max - min + 1)) + min;
