@@ -1,12 +1,19 @@
 const point = document.getElementById("point");
+const pointNumber = document.getElementById("pointnumber");
 const startGame = document.getElementById("startGame");
 
-let pointInterval;
+const plusSpeed = document.getElementById("plusSpeed");
+const minusSpeed = document.getElementById("minusSpeed");
 
+let pointInterval;
+let speed = 1000;
+
+/*
 point.onclick = () => {
     point.classList.add("clickedPoint");
     setInterval(removeClass("clickedPoint"), 1000);
 }
+*/
 
 const removeClass = (classThing) => {
     point.classList.remove(`${classThing}`);
@@ -18,6 +25,24 @@ startGame.onclick = () => {
     startGame.style.opacity = "0";
 }
 
+plusSpeed.onclick = () => {
+    clearInterval(pointInterval);
+    speed += 100;
+    pointInterval = setInterval(() => {
+        setSize(point, getRandomNumber(60, 130));
+        movePoint(point, getRandomNumber(parseFloat(point.style.width), window.innerWidth - parseFloat(point.style.width)), getRandomNumber(parseFloat(point.style.height), window.innerHeight - parseFloat(point.style.height)));
+    }, speed);
+}
+
+minusSpeed.onclick = () => {
+    clearInterval(pointInterval);
+    speed -= 100;
+    pointInterval = setInterval(() => {
+        setSize(point, getRandomNumber(60, 130));
+        movePoint(point, getRandomNumber(parseFloat(point.style.width), window.innerWidth - parseFloat(point.style.width)), getRandomNumber(parseFloat(point.style.height), window.innerHeight - parseFloat(point.style.height)));
+    }, speed);
+}
+
 const movePoint = (element, x, y) => {
     element.style.top = `${y}px`;
     element.style.left = `${x}px`;
@@ -26,18 +51,22 @@ const movePoint = (element, x, y) => {
 
 const startPointInterval = () => {
     clearInterval(pointInterval);
-    setPointClick(point);
+    setPointClick(point, pointNumber);
     pointInterval = setInterval(() => {
-        setSize(point, getRandomNumber(60, 120));
-        movePoint(point, getRandomNumber(100, 600), getRandomNumber(100, 600));
-    }, 700);
+        setSize(point, getRandomNumber(60, 130));
+        movePoint(point, getRandomNumber(parseFloat(point.style.width), window.innerWidth - parseFloat(point.style.width)), getRandomNumber(parseFloat(point.style.height), window.innerHeight - parseFloat(point.style.height)));
+    }, speed);
 }
 
 const getRandomNumber = (max, min) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const setPointClick = (element) => {
+let timeStart = 0;
+const setPointClick = (element, elementNumberChange) => {
     element.onclick = () => {
-        element.innerText++;
+        if (timeStart == 0) {
+            timeStart = performance.now();
+        }
+        elementNumberChange.innerText++;
     }
 }
 

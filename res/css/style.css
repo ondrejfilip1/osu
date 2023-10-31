@@ -72,6 +72,30 @@ body {
     justify-items: center;
 }
 
+#pointnumber {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.pos-abs {
+    position: absolute;
+}
+
+.bi {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 30px!important;
+    transition: .2s color;
+    cursor: pointer;
+}
+
+.bi:hover {
+    color: white;
+}
+
+span#curSpeed {
+    
+}
+
 /* Animace */
 
 @keyframes clickedPoint {
