@@ -29,6 +29,8 @@ startGame.onclick = () => {
     plusSpeed.style.opacity = "1";
     minusSpeed.style.pointerEvents = "all";
     plusSpeed.style.pointerEvents = "all";
+    curSpeed.style.top = "0";
+    timeInfo.style.top = "0";
 }
 
 plusSpeed.onclick = () => {

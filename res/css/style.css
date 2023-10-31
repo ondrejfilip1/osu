@@ -97,6 +97,7 @@ body {
     font-family: monospace;
     position: relative;
     top: -30px;
+    transition: .4s top;
 }
 
 .icons-bar span {
@@ -106,7 +107,7 @@ body {
 #plusSpeed, #minusSpeed {
     pointer-events: none;
     opacity: 0;
-    transition: .5s opacity;
+    transition: .6s opacity;
 }
 
 /* Animace */
