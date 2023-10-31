@@ -92,13 +92,13 @@ body {
     color: white;
 }
 
-span#curSpeed {
-    color: white;
-}
-
-#timeInfo {
+#timeInfo,span#curSpeed {
     color: white;
     font-family: monospace;
+}
+
+.icons-bar span {
+    margin-left: 8px;
 }
 
 /* Animace */

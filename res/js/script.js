@@ -2,6 +2,7 @@ const point = document.getElementById("point");
 const pointNumber = document.getElementById("pointnumber");
 const startGame = document.getElementById("startGame");
 const timeInfo = document.getElementById("timeInfo");
+const curSpeed = document.getElementById("curSpeed");
 
 const plusSpeed = document.getElementById("plusSpeed");
 const minusSpeed = document.getElementById("minusSpeed");
@@ -33,6 +34,7 @@ plusSpeed.onclick = () => {
         setSize(point, getRandomNumber(60, 130));
         movePoint(point, getRandomNumber(parseFloat(point.style.width), window.innerWidth - parseFloat(point.style.width)), getRandomNumber(parseFloat(point.style.height), window.innerHeight - parseFloat(point.style.height)));
     }, speed);
+    curSpeed.innerText = `Current speed: ${speed}`;
 }
 
 minusSpeed.onclick = () => {
@@ -42,6 +44,7 @@ minusSpeed.onclick = () => {
         setSize(point, getRandomNumber(60, 130));
         movePoint(point, getRandomNumber(parseFloat(point.style.width), window.innerWidth - parseFloat(point.style.width)), getRandomNumber(parseFloat(point.style.height), window.innerHeight - parseFloat(point.style.height)));
     }, speed);
+    curSpeed.innerText = `Current speed: ${speed}`;
 }
 
 const movePoint = (element, x, y) => {
