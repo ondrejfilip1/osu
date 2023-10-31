@@ -69,7 +69,8 @@ const setPointClick = (element, elementNumberChange) => {
         } else {
             let timeEnd = performance.now();
             let result = timeEnd - timeStart;
-            timeInfo.innerText = `Time: ${result}ms`
+            timeInfo.innerText = `Time: ${result}ms`;
+            timeStart = performance.now();
         }
         elementNumberChange.innerText++;
     }
