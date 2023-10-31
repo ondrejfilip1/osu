@@ -93,7 +93,12 @@ body {
 }
 
 span#curSpeed {
-    
+    color: white;
+}
+
+#timeInfo {
+    color: white;
+    font-family: monospace;
 }
 
 /* Animace */

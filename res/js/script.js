@@ -1,6 +1,7 @@
 const point = document.getElementById("point");
 const pointNumber = document.getElementById("pointnumber");
 const startGame = document.getElementById("startGame");
+const timeInfo = document.getElementById("timeInfo");
 
 const plusSpeed = document.getElementById("plusSpeed");
 const minusSpeed = document.getElementById("minusSpeed");
@@ -65,6 +66,10 @@ const setPointClick = (element, elementNumberChange) => {
     element.onclick = () => {
         if (timeStart == 0) {
             timeStart = performance.now();
+        } else {
+            let timeEnd = performance.now();
+            let result = timeEnd - timeStart;
+            timeInfo.innerText = `Time: ${result}ms`
         }
         elementNumberChange.innerText++;
     }
